@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
-    const contactForm = document.getElementById('contact-form');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
     // Adiciona sombra ao cabeçalho no scroll
     window.addEventListener('scroll', () => {
@@ -13,21 +14,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Manipulação do formulário de contato
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const message = e.target.message.value;
-
-        if (name && email && message) {
-            alert('Obrigado pelo seu contato! Responderei em breve.');
-            contactForm.reset();
-        } else {
-            alert('Por favor, preencha todos os campos.');
-        }
+    // Funcionalidade do menu hambúrguer
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
+
+    document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }));
 
     // Efeito de revelação suave nas seções
     const sections = document.querySelectorAll('section');
