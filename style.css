@@ -245,6 +245,28 @@ footer {
     margin-top: 4rem;
 }
 
+/* --- Estilos para Foto na Seção Hero --- */
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Espaçar o texto e a foto */
+    gap: 2rem; /* Espaçamento entre texto e foto */
+}
+
+.hero-text {
+    text-align: left; /* Alinha o texto à esquerda */
+    flex-basis: 60%; /* Ocupa 60% do espaço */
+}
+
+.profile-photo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover; /* Garante que a foto não fique distorcida */
+    border: 5px solid var(--primary-color); /* Adiciona uma borda com a cor do tema */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
 /* --- Media Queries para Responsividade --- */
 
 @media (max-width: 768px) {
@@ -314,4 +336,24 @@ footer {
     #hero p {
         font-size: 1rem;
     }
+}
+/* Dentro de @media (max-width: 768px) */
+.hero-container {
+    flex-direction: column; /* Coloca a foto em cima do texto */
+    text-align: center;
+}
+
+.hero-text {
+    text-align: center; /* Centraliza o texto no mobile */
+    order: 2; /* Coloca o texto depois da foto */
+    margin-top: 2rem;
+}
+
+.hero-photo-container {
+    order: 1; /* Coloca a foto antes do texto */
+}
+
+.profile-photo {
+    width: 200px;
+    height: 200px;
 }
